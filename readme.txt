@@ -1,0 +1,43 @@
+=== Facebook Send Button By Teknoblogo.com ===
+Contributors: erayalakese
+Donate link: http://www.teknoblogo.com
+Tags: facebook,send,gonder,button
+Requires at least: 2.0.2
+Tested up to: 3.1.1
+Stable tag: 1.3
+
+Quickly adds Facebook Send & Like buttons to your blog posts.
+
+== Description ==
+
+Simple, adds Facebook Send & Like buttons after / before your blog post contents.
+
+== Installation ==
+
+1. Upload `fgb.php` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Configure plugin (Options>Facebook Send Button)
+
+== Frequently Asked Questions ==
+
+= How can i contact with developer ? =
+
+You can contact with me erayalakese [at] gmail [dot] com
+
+== Screenshots ==
+
+== Changelog ==
+
+= 1.3 =
+* Now, users can select place of button (for example homepage, single pages etc.)
+* Users can embed button anywhere, manually.
+
+= 1.2 =
+* Performance and visual optimizations
+
+= 1.1 =
+* Admin options improved
+* Send and like buttons added
+
+= 1.0 =
+* First Release
