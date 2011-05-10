@@ -4,7 +4,7 @@ Donate link: http://www.teknoblogo.com
 Tags: facebook,send,gonder,button
 Requires at least: 2.0.2
 Tested up to: 3.1.1
-Stable tag: 1.3
+Stable tag: 1.4
 
 Quickly adds Facebook Send & Like buttons to your blog posts.
 
@@ -27,6 +27,9 @@ You can contact with me erayalakese [at] gmail [dot] com
 == Screenshots ==
 
 == Changelog ==
+
+= 1.4 =
+* Now plugin won't work on admin page, so admin panel performance will improved.
 
 = 1.3 =
 * Now, users can select place of button (for example homepage, single pages etc.)

@@ -3,16 +3,18 @@
 /*
 Plugin Name: Facebook Send Button By Teknoblogo.com
 Plugin URI: http://www.teknoblogo.com/facebook-gonder-butonu-eklenti
-Description: Adds Facebook's Send and Like buttons to your posts ! Author : <a href="http://www.teknoblogo.com">teknoblogo.com</a>
-Version: 1.3
+Description: Adds Facebook's Send and Like buttons to your posts ! Author : <a href="http://www.teknoblogo.com">teknoblogo.com</a><br /><strong>Don't forgot to re-configure plugin !</strong>
+Version: 1.4
 Author: Eray Alakese
 Author URI: http://www.teknoblogo.com
 License: GPL2
 */
 
-
-    wp_register_script('fgb_script', "http://connect.facebook.net/en_US/all.js#xfbml=1");
-    wp_enqueue_script('fgb_script');
+    if(!is_admin())
+    {
+        wp_register_script('fgb_script', "http://connect.facebook.net/en_US/all.js#xfbml=1");
+        wp_enqueue_script('fgb_script');
+    }
     
 function fgb_ayarlari_yap()
 {
