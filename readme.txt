@@ -4,13 +4,13 @@ Donate link: http://www.teknoblogo.com
 Tags: facebook,send,gonder,button
 Requires at least: 2.0.2
 Tested up to: 3.1.1
-Stable tag: 1.4
+Stable tag: 1.5
 
 Quickly adds Facebook Send & Like buttons to your blog posts.
 
 == Description ==
 
-Simple, adds Facebook Send & Like buttons after / before your blog post contents.
+Simply, adds Facebook Send & Like buttons after / before your blog post contents.
 
 == Installation ==
 
@@ -20,13 +20,24 @@ Simple, adds Facebook Send & Like buttons after / before your blog post contents
 
 == Frequently Asked Questions ==
 
+= I can't see any 'send' button ? =
+
+Send buttons isn't available on iframe mode (Facebook doesn't allow!) . You have to use 'XFBML' mode. If you choose 'XFBML' mode but still you can't see send button, and any error message, you can contact with me.
+
 = How can i contact with developer ? =
 
 You can contact with me erayalakese [at] gmail [dot] com
 
+= Can i teach English to developer ? =
+
+Sure !
+
 == Screenshots ==
 
 == Changelog ==
+
+= 1.5 =
+*'iframe' mode added. Now you can use iframes for like buttons.
 
 = 1.4 =
 * Now plugin won't work on admin page, so admin panel performance will improved.
