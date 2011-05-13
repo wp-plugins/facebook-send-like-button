@@ -146,7 +146,7 @@ function fgb_admin_options() {
         <option value="send" <?php if(get_option('fgb_button') == 'send'){ echo "SELECTED"; }?>>just send button</option>
         <option value="like" <?php if(get_option('fgb_button') == 'like'){ echo "SELECTED"; }?>>just like button</option>
     </select> .
-    <input type="checkbox" value="yes" name="fgb_trouble"<?php if(get_option('fgb_trouble') == 'yes'){echo "CHECKED";} ?> />TROUBLE MODE
+    <input type="checkbox" value="yes" name="fgb_trouble"<?php if(get_option('fgb_trouble') == 'yes'){echo "CHECKED";} ?> /><a href="http://wordpress.org/support/topic/about-trouble-mode">TROUBLE MODE (?)</a>
     <br />
     <input type="radio" value="no" name="fgb_manual" <?php if(get_option('fgb_manual') == 'no'){ echo "CHECKED"; }?> /> put buttons for me, AUTOMATICALLY <br />
     <input type="radio" value="yes" name="fgb_manual" <?php if(get_option('fgb_manual') == 'yes'){ echo "CHECKED"; }?> /> i can put them, MANUALLY <br />
