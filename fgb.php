@@ -4,13 +4,13 @@
 Plugin Name: Facebook Send Button By Teknoblogo.com
 Plugin URI: http://www.teknoblogo.com/facebook-gonder-butonu-eklenti
 Description: Adds Facebook's Send and/or Like buttons to your posts ! Author : <a href="http://www.teknoblogo.com">teknoblogo.com</a><br /> <strong>Don't forgot to re-configure plugin !</strong>
-Version: 1.5
+Version: 1.5.1
 Author: Eray Alakese
 Author URI: http://www.teknoblogo.com
 License: GPL2
 */
 
-    if(get_option('fgb_mode') == 'xfbml')
+    if(get_option('fgb_mode') == 'xfbml' && get_option('fgb_trouble') != 'yes')
     {
         wp_register_script('fgb_script', "http://connect.facebook.net/en_US/all.js#appId=215477511814689&amp;xfbml=1");
         wp_enqueue_script('fgb_script');
@@ -20,8 +20,9 @@ function fgb_ayarlari_yap()
 {
     add_option('fgb_yer', 'u');
     add_option('fgb_button', 'snl');
-    add_option('fgb_manual', 'hayir');
+    add_option('fgb_manual', 'no');
     add_option('fgb_mode', 'xfbml');
+    add_option('fgb_trouble', 'no');
 }
 register_activation_hook( __FILE__, 'fgb_ayarlari_yap' );
 
@@ -41,6 +42,7 @@ function fgb_ekle($content)
     $fgb_manual = get_option('fgb_manual');
     $fgb_mode = get_option('fgb_mode');
     $fgb_perma	= rawurlencode(get_permalink());
+    $fgb_trouble = get_option('fgb_trouble');
 
     if($fgb_mode == 'iframe')
     {
@@ -65,15 +67,21 @@ function fgb_ekle($content)
     {
         if($fgb_button_opt == 'like')
         {
-            $fgb_button = "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=215477511814689&amp;xfbml=1\"></script><fb:like href=\"$fgb_perma\" send=\"false\" layout=\"button_count\" width=\"450\" show_faces=\"false\" font=\"\"></fb:like>";
+            $fgb_button = "<div id=\"fb-root\"></div><fb:like href=\"$fgb_perma\" send=\"false\" layout=\"button_count\" width=\"450\" show_faces=\"false\" font=\"\"></fb:like>";
         }
         elseif($fgb_button_opt == 'send')
         {
-            $fgb_button = "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script><fb:send href=\"$fgb_perma\" font=\"\"></fb:send>";
+            $fgb_button = "<div id=\"fb-root\"></div><fb:send href=\"$fgb_perma\" font=\"\"></fb:send>";
         }
         elseif($fgb_button_opt == 'snl')
         {
-            $fgb_button = "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=215477511814689&amp;xfbml=1\"></script><fb:like href=\"$fgb_perma\" send=\"true\" layout=\"button_count\" width=\"450\" show_faces=\"false\" font=\"\"></fb:like>";
+            if($fgb_trouble == 'yes')
+            {
+                $fgb_button = "<div id=\"fb-root\" style=\"float:left;\"></div><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1&amp;layout=button_count\"></script><fb:send href=\"$fgb_perma\" font=\"\"></fb:send><div id=\"fb-root\" style=\"float:left;\"></div><script src=\"http://connect.facebook.net/en_US/all.js#appId=124435277635306&amp;xfbml=1\"></script><fb:like href=\"$fgb_perma\" send=\"false\" layout=\"button_count\" show_faces=\"false\" font=\"\"></fb:like>";
+            }
+            else {
+                $fgb_button = "<div id=\"fb-root\"></div><fb:like href=\"$fgb_perma\" send=\"true\" layout=\"button_count\" width=\"450\" show_faces=\"false\" font=\"\"></fb:like>";
+            }
         }
         else
         {
@@ -124,6 +132,7 @@ function fgb_admin_options() {
       update_option('fgb_button', $_POST["fgb_button"]);
       update_option('fgb_manual', $_POST["fgb_manual"]);
       update_option('fgb_mode', $_POST["fgb_mode"]);
+      update_option('fgb_trouble', $_POST["fgb_trouble"]);
     }
     ?>
     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
@@ -136,7 +145,9 @@ function fgb_admin_options() {
         <option value="snl" <?php if(get_option('fgb_button') == 'snl'){ echo "SELECTED"; }?>>send and like buttons together</option>
         <option value="send" <?php if(get_option('fgb_button') == 'send'){ echo "SELECTED"; }?>>just send button</option>
         <option value="like" <?php if(get_option('fgb_button') == 'like'){ echo "SELECTED"; }?>>just like button</option>
-    </select> . <br />
+    </select> .
+    <input type="checkbox" value="yes" name="fgb_trouble"<?php if(get_option('fgb_trouble') == 'yes'){echo "CHECKED";} ?> />TROUBLE MODE
+    <br />
     <input type="radio" value="no" name="fgb_manual" <?php if(get_option('fgb_manual') == 'no'){ echo "CHECKED"; }?> /> put buttons for me, AUTOMATICALLY <br />
     <input type="radio" value="yes" name="fgb_manual" <?php if(get_option('fgb_manual') == 'yes'){ echo "CHECKED"; }?> /> i can put them, MANUALLY <br />
 
@@ -150,7 +161,7 @@ function fgb_admin_options() {
     <hr />
     <em>If you <iframe src="http://www.facebook.com/plugins/like.php?app_id=165465603514883&amp;href=http%3A%2F%2Fwordpress.org%2Fextend%2Fplugins%2Ffacebook-send-like-button%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe> this plugin, please <a href="http://wordpress.org/extend/plugins/facebook-send-like-button/">vote</a> .
     Author : <a href="http://www.teknoblogo.com">Eray Alakese</a>
-    You can <a href="mailto:info@teknoblogo.com">mail me</a> for bugs, thanks.</em>
+    You can <a href="mailto:info@teknoblogo.com">mail me</a> for bugs, <a href="http://www.twitter.com/teknoblogo">follow me</a> for upgrades, thanks.</em>
 
     <?php
 	echo '</div>';
