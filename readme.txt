@@ -4,7 +4,7 @@ Donate link: http://www.teknoblogo.com
 Tags: facebook,send,gonder,button,like
 Requires at least: 2.0.2
 Tested up to: 3.1.1
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 
 Quickly adds Facebook Send & Like buttons to your blog posts.
 

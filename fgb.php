@@ -4,7 +4,7 @@
 Plugin Name: Facebook Send Button By Teknoblogo.com
 Plugin URI: http://www.teknoblogo.com/facebook-gonder-butonu-eklenti
 Description: Adds Facebook's Send and/or Like buttons to your posts ! Author : <a href="http://www.teknoblogo.com">teknoblogo.com</a><br /> <strong>Don't forgot to re-configure plugin !</strong>
-Version: 1.5.1
+Version: 1.5.2
 Author: Eray Alakese
 Author URI: http://www.teknoblogo.com
 License: GPL2
@@ -146,7 +146,7 @@ function fgb_admin_options() {
         <option value="send" <?php if(get_option('fgb_button') == 'send'){ echo "SELECTED"; }?>>just send button</option>
         <option value="like" <?php if(get_option('fgb_button') == 'like'){ echo "SELECTED"; }?>>just like button</option>
     </select> .
-    <input type="checkbox" value="yes" name="fgb_trouble"<?php if(get_option('fgb_trouble') == 'yes'){echo "CHECKED";} ?> /><a href="http://wordpress.org/support/topic/about-trouble-mode">TROUBLE MODE (?)</a>
+    <input type="checkbox" value="yes" name="fgb_trouble"<?php if(get_option('fgb_trouble') == 'yes'){echo "CHECKED";} ?> /><a href="http://wordpress.org/support/topic/about-trouble-mode" target="_blank">TROUBLE MODE (?)</a>
     <br />
     <input type="radio" value="no" name="fgb_manual" <?php if(get_option('fgb_manual') == 'no'){ echo "CHECKED"; }?> /> put buttons for me, AUTOMATICALLY <br />
     <input type="radio" value="yes" name="fgb_manual" <?php if(get_option('fgb_manual') == 'yes'){ echo "CHECKED"; }?> /> i can put them, MANUALLY <br />
