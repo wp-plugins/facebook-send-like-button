@@ -4,7 +4,7 @@ Donate link: http://www.teknoblogo.com
 Tags: facebook,send,gonder,button,like
 Requires at least: 2.0.2
 Tested up to: 3.1.1
-Stable tag: 1.5.2
+Stable tag: 1.6
 
 Quickly adds Facebook Send & Like buttons to your blog posts.
 
@@ -20,9 +20,13 @@ Simply, adds Facebook Send & Like buttons after / before your blog post contents
 
 == Frequently Asked Questions ==
 
-= I can't see any 'send' button ? =
+= What's happened to TROUBLE MODE ? =
 
-Send buttons isn't available on iframe mode (Facebook doesn't allow!) . You have to use 'XFBML' mode. If you choose 'XFBML' mode but still you can't see send button, please read [this thread](http://wordpress.org/support/topic/about-trouble-mode/ "this thread").
+Facebook developers fix that error. Because of this, we don't need this mode anymore.
+
+= Can i use `[like]` shortcode, outside of posts ? =
+
+Sure ! You can use do_shortcode() function of Wordpress !
 
 = How can i contact with developer ? =
 
@@ -35,6 +39,9 @@ Sure !
 == Screenshots ==
 
 == Changelog ==
+
+= 1.6 =
+* Like Shortcode added for manual insertion. Now you have most customizable and usable Facebook Like button ! You can see all attributes on settings page of plugin.
 
 = 1.5.1 =
 * TROUBLE MODE added. Details [here](http://wordpress.org/support/topic/about-trouble-mode/ "here")
@@ -60,4 +67,4 @@ Sure !
 * First Release
 
 == Upgrade Notice ==
-With TROUBLE MODE, you can use like and send buttons together.
+Like Shortcode added for manual insertion. Now you have most customizable and usable Facebook Like button !
